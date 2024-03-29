@@ -1,0 +1,5 @@
+URL = 'https://testautomationpractice.blogspot.com/'
+NAME = 'Captain Jack Sparrow'
+EMAIL = 'piratelord@gmail.com'
+PHONE = '000-000-0000'
+ADDRESS = 'East 64th Street, New York, NY 10021'
