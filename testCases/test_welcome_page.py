@@ -14,7 +14,7 @@ from datetime import datetime
 from configurations import config
 from utilities.customLogger import LogGen
 
-
+logger = LogGen.loggen()
 URL = config.URL    
 
 class TestLeftPage:
@@ -22,26 +22,26 @@ class TestLeftPage:
     EMAIL = config.EMAIL
     PHONE = config.PHONE
     ADDRESS = config.ADDRESS
-    logger = LogGen.loggen()
+
 
     def test_welcome_page(self, driver_setup):
-        self.logger.info("@@@@@@@@@@@ verifying welcome page @@@@@@@@@@@")
+        logger.info("@@@@@@@@@@@ verifying welcome page @@@@@@@@@@@")
         self.driver = driver_setup
         self.driver.get(URL)
         actual_title = self.driver.title
         if actual_title == "Automation Testing Practice":
             self.driver.close()
-            self.logger.info("welcome page passed")
+            logger.info("welcome page passed")
             assert True
         else:
             now = datetime.now()
             self.driver.save_screenshot(f"./screenshots/test_welcome_page_{now}.png")
             self.driver.close()
-            self.logger.error("welcome page failed")
+            logger.error("welcome page failed")
             assert False
 
     def test_name(self, driver_setup):
-        self.logger.info("@@@@@@@@@@@ verifying name textbox @@@@@@@@@@@")
+        logger.info("@@@@@@@@@@@ verifying name textbox @@@@@@@@@@@")
         self.driver = driver_setup
         self.driver.get(URL)
         LP.set_name(self, self.NAME)
@@ -49,17 +49,17 @@ class TestLeftPage:
         result = LP.get_name(self)
         if result == self.NAME:
             self.driver.close()
-            self.logger.info("name textbox passed")
+            logger.info("name textbox passed")
             assert True
         else:
             now = datetime.now()
             self.driver.save_screenshot(f"./screenshots/test_name_{now}.png")
             self.driver.close()
-            self.logger.error("name textbox failed")
+            logger.error("name textbox failed")
             assert False
 
     def test_email(self, driver_setup):
-        self.logger.info("@@@@@@@@@@@ verifying email textbox @@@@@@@@@@@")
+        logger.info("@@@@@@@@@@@ verifying email textbox @@@@@@@@@@@")
         self.driver = driver_setup
         self.driver.get(URL)
         LP.set_email(self, self.EMAIL)
@@ -67,17 +67,17 @@ class TestLeftPage:
         result = LP.get_email(self)
         if result == self.EMAIL:
             self.driver.close()
-            self.logger.info("email textbox passed")
+            logger.info("email textbox passed")
             assert True
         else:
             now = datetime.now()
             self.driver.save_screenshot(f"./screenshots/test_email_{now}.png")
             self.driver.close()
-            self.logger.error("email textbox failed")
+            logger.error("email textbox failed")
             assert False
 
     def test_phone(self, driver_setup):
-        self.logger.info("@@@@@@@@@@@ verifying phone textbox @@@@@@@@@@@")
+        logger.info("@@@@@@@@@@@ verifying phone textbox @@@@@@@@@@@")
         self.driver = driver_setup
         self.driver.get(URL)
         LP.set_phone(self, self.PHONE)
@@ -85,17 +85,17 @@ class TestLeftPage:
         result = LP.get_phone(self)
         if result == self.PHONE:
             self.driver.close()
-            self.logger.info("phone textbox passed")
+            logger.info("phone textbox passed")
             assert True
         else:
             now = datetime.now()
             self.driver.save_screenshot(f"./screenshots/test_phone_{now}.png")
             self.driver.close()
-            self.logger.error("phone textbox failed")
+            logger.error("phone textbox failed")
             assert False
 
     def test_address(self, driver_setup):
-        self.logger.info("@@@@@@@@@@@ verifying address textarea @@@@@@@@@@@")
+        logger.info("@@@@@@@@@@@ verifying address textarea @@@@@@@@@@@")
         self.driver = driver_setup
         self.driver.get(URL)
         LP.set_adress(self, self.ADDRESS)
@@ -103,11 +103,11 @@ class TestLeftPage:
         result = LP.get_adress(self)
         if result == self.ADDRESS:
             self.driver.close()
-            self.logger.info("address textarea passed")
+            logger.info("address textarea passed")
             assert True
         else:
             now = datetime.now()
             self.driver.save_screenshot(f"./screenshots/test_address_{now}.png")
             self.driver.close()
-            self.logger.error("address textarea failed")
+            logger.error("address textarea failed")
             assert False
