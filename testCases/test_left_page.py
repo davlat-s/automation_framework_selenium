@@ -1,6 +1,7 @@
-
 import sys
 from os.path import dirname, abspath
+
+# setting up sys path
 parent_dir = dirname(dirname(abspath(__file__)))
 sys.path.append(parent_dir)
 
@@ -13,6 +14,8 @@ from testCases.conftest import driver_setup
 from datetime import datetime
 from configurations import config
 from utilities.customLogger import LogGen
+from configurations import config
+
 
 logger = LogGen.loggen()
 URL = config.URL    
@@ -43,9 +46,9 @@ class TestLeftPage:
     def test_name(self, driver_setup):
         logger.info("@@@@@@@@@@@ verifying name textbox @@@@@@@@@@@")
         self.driver = driver_setup
+        self.driver.implicitly_wait(5)
         self.driver.get(URL)
         LP.set_name(self, self.NAME)
-        sleep(2)
         result = LP.get_name(self)
         if result == self.NAME:
             self.driver.close()
@@ -61,9 +64,9 @@ class TestLeftPage:
     def test_email(self, driver_setup):
         logger.info("@@@@@@@@@@@ verifying email textbox @@@@@@@@@@@")
         self.driver = driver_setup
+        self.driver.implicitly_wait(5)
         self.driver.get(URL)
         LP.set_email(self, self.EMAIL)
-        sleep(2)
         result = LP.get_email(self)
         if result == self.EMAIL:
             self.driver.close()
@@ -79,9 +82,9 @@ class TestLeftPage:
     def test_phone(self, driver_setup):
         logger.info("@@@@@@@@@@@ verifying phone textbox @@@@@@@@@@@")
         self.driver = driver_setup
+        self.driver.implicitly_wait(5)
         self.driver.get(URL)
         LP.set_phone(self, self.PHONE)
-        sleep(2)
         result = LP.get_phone(self)
         if result == self.PHONE:
             self.driver.close()
@@ -97,9 +100,9 @@ class TestLeftPage:
     def test_address(self, driver_setup):
         logger.info("@@@@@@@@@@@ verifying address textarea @@@@@@@@@@@")
         self.driver = driver_setup
+        self.driver.implicitly_wait(5)
         self.driver.get(URL)
         LP.set_adress(self, self.ADDRESS)
-        sleep(2)
         result = LP.get_adress(self)
         if result == self.ADDRESS:
             self.driver.close()

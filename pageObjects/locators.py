@@ -1,0 +1,8 @@
+name_textbox_id = 'name'
+email_textbox_id = 'email'
+phone_textbox_id = 'phone'
+address_textarea_id = 'textarea'
+wikipedia_input_box_id = 'Wikipedia1_wikipedia-search-input'
+wikipedia_search_button_class = 'wikipedia-search-button'
+first_result_link_xpath = '//*[@id="wikipedia-search-result-link"]/a'
+page_title_class = 'mw-page-title-main'
